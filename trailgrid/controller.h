@@ -25,6 +25,7 @@ private:
     void updateBotCell(double x, double y);
     void updateTrailCell(double x, double y);
     void drawBotView();
+    void mappingDeadReck();
 signals:
 
 public slots:

@@ -11,7 +11,7 @@ Bot::Bot(int *argc, char **argv) :
     ArRobot(),
     QObject()
 {
-    velForward = 500;
+    velForward = 200;
 }
 
 Bot::~Bot()

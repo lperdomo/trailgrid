@@ -20,7 +20,7 @@ private:
     double cellScale;
     QGraphicsRectItem *rectBot;
 protected:
-    void drawBackground(QPainter *painter, const QRectF &rect);
+    void drawForeground(QPainter *painter, const QRectF &rect);
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
 };

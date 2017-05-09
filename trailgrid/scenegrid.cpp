@@ -26,7 +26,7 @@ double SceneGrid::getCellScale()
     return this->cellScale;
 }
 
-void SceneGrid::drawBackground(QPainter *painter, const QRectF &rect)
+void SceneGrid::drawForeground(QPainter *painter, const QRectF &rect)
 {
     qreal x, y;
     qreal left = int(rect.left()) - (int(rect.left()) % (int(cellSize)));
@@ -75,7 +75,7 @@ void SceneGrid::keyReleaseEvent(QKeyEvent *event)
 void SceneGrid::drawBotRect(qreal x, qreal y)
 {
     if (!rectBot) {
-        rectBot = new QGraphicsRectItem(x, y, cellSize, cellSize);
+        rectBot = new QGraphicsRectItem(x, y, cellSize*2, cellSize*2);
         rectBot->setBrush(QBrush(Qt::red));
     } else {
         this->removeItem(rectBot);
@@ -86,7 +86,8 @@ void SceneGrid::drawBotRect(qreal x, qreal y)
 
 void SceneGrid::drawTrailRect(qreal x, qreal y)
 {
-    QGraphicsRectItem *rect = new QGraphicsRectItem(x, y, cellSize, cellSize);
+    QGraphicsRectItem *rect = new QGraphicsRectItem(x, y, cellSize*2, cellSize*2);
+    rectBot->setParentItem(rect);
     rect->setBrush(QBrush(Qt::darkGray));
     this->addItem(rect);
 }
